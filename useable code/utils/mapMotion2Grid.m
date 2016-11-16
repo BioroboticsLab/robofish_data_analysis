@@ -1,0 +1,1 @@
+function G = mapMotion2Grid(Motion, shape, segmentation)
