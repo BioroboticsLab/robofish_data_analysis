@@ -31,7 +31,7 @@ def load_csv(file_path):
         fish_dict = {}
         row = dat[i,1:]
         for j in range(fish_num):
-            begin = 5 * (j - 1)
+            begin = 5 * j
             # fish ids
             id = int(row[begin])
             # dat coordinate
