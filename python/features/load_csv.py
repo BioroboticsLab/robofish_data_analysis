@@ -18,7 +18,7 @@ def load_csv(file_path):
     if len(dat[0])%5 == 2:
         dat = np.delete(dat, 1, 1)
 
-    # format of dat: frameID, fishID, dat, y, deg, rad...
+    # format of dat: frameID, fishID, x, y, deg, rad...
 
 
     # sort each row order fish_id
