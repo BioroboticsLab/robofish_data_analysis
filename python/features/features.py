@@ -25,7 +25,7 @@ def forward_acc(dat, delta_t=1):
     get the forward accelerations of all fish for all frames
     acc(t) = (vf(t+delta_t)-vf(t)) / delta_t
     :param dat: formative tracking data, n rows;
-    :param delta_t:
+    :param delta_t: the duration
     :return: the (n - delta_t * fish_num) forward acceleration matrix
     '''
     vf = forward_velocity(dat)
@@ -58,7 +58,7 @@ def turning_acc(dat, delta_t=1):
     get the turning accelerations of all fish for all frames
     acc(t) = (vt(t+delta_t)-vt(t)) / delta_t
     :param dat: formative tracking data, n rows;
-    :param delta_t:
+    :param delta_t: the duration
     :return: the (n - delta_t * fish_num) turning acceleration matrix
     '''
     vt = turning_velocity(dat)
@@ -119,6 +119,7 @@ def relative_linked_angle_acc(dat, id_a, id_b, delta_t=1):
     :param dat: formative tracking data, n rows;
     :param id_a: the id of fish a;
     :param id_b: the id of fish b;
+    :param delta_t: the duration
     :return: the (n - delta_t * fish_num) relative linked angle acceleration matrix
     '''
     vl = linked_angle(dat, id_a, id_b)
@@ -167,12 +168,13 @@ def relative_velocities(dat, id_a, id_b):
 def relative_vf_acc(dat, id_a, id_b, delta_t=1):
     '''
     get the acceleration of the relative forward velocity of fish b to fish a for all frames
-    let v(t) be the of fish a to fish b at frame t
-    acc(t) =
+    let rvf(t) be the relative forward velocity of fish a to fish b at frame t
+    acc(t) = (rvf(t+delta_t) - rvf(t)) / delta_t
     :param dat: formative tracking data, n rows;
     :param id_a: the id of fish a;
     :param id_b: the id of fish b;
-    :return: the (n - delta_t * fish_num) relative linked angle acceleration matrix
+    :param delta_t: the duration;
+    :return: the (n - delta_t * fish_num) relative forward velocity acceleration matrix
     '''
     rv = relative_velocities(dat, id_a, id_b)
     # get the forward velocity

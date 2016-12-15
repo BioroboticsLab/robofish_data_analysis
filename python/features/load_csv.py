@@ -1,10 +1,14 @@
 import numpy as np
 import pandas as pd
 
-#
-#
-# return format: frame_id , fish_1, x, y, rad ,fish_2...
+
 def load_csv(file_path):
+    '''
+    load the csv tracking data into numpy matrix
+    format of each row: frame_id, fish_1, x, y, rad ,fish_2...
+    :param file_path: the path of csv data
+    :return: the formative numpy matrix
+    '''
     df = pd.read_csv(file_path, sep=',',delimiter=';',header=None)
     dat = df.values
 
