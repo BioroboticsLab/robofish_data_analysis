@@ -26,10 +26,10 @@ def load_csv(file_path):
 
 
     # sort each row order fish_id
-    (r, c) = dat.shape
-    fish_num = c/5
+    (r, c) 		= dat.shape
+    fish_num 	= int(c/5)
 
-    X = np.zeros(shape=(r, 1+fish_num*4))
+    X = np.zeros( shape=(r, 1+fish_num*4) )
     X[:,0] = dat[:,0]
     for i in range(r):
         fish_dict = {}
