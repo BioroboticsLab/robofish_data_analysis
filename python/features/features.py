@@ -3,14 +3,14 @@ import math
 
 
 
-def forward_velocity(dat):
+def motion_velocity(dat):
     '''
     get the forward velocities of all fish for all frames
     :param dat: formative tracking data, n rows;
     :return: (n-1 * fish_num) forward velocity matrix
     '''
     (r, c) = dat.shape
-    fish_num = c/4
+    fish_num = int(c/4)
     X = np.zeros(shape=(r-1, fish_num))
 
     for i in range(r-1):
