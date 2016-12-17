@@ -44,7 +44,7 @@ def turning_velocity(dat):
     :return: the (n-1 * fish_num) turning velcotiy matrix
     '''
     (r, c) = dat.shape
-    fish_num = c/4
+    fish_num = int(c/4)
     X = np.zeros(shape=(r-1, fish_num))
     for i in range(r-1):
         for j in range(fish_num):
@@ -215,7 +215,7 @@ def nearby_fish(dat, fish_id):
     :return: sorted distance matrix, the id-map matrix of the distance matrix
     '''
     (r, c) = dat.shape
-    fish_num = c/4
+    fish_num = int(c/4)
     dist_matrix = np.zeros(shape=(r, fish_num - 1))
     id_matrix   = np.zeros(shape=(r, fish_num - 1))
 
@@ -261,7 +261,8 @@ def dist_to_tank(dat, fish_id, rays_num = 5, view_field = math.pi):
         ori    = dat[i][(fish_id - 1) * 4 + 4]
 
         ray_dists = [_ray_to_tank(posi_x, posi_y, ori)]
-        for j in range(rays_num/2):
+        half_num = int((rays_num-1)/2)
+        for j in range(half_num):
             left = _norm_angle(ori + part_size * (j+1), math.pi)
             ray_dists = [_ray_to_tank(posi_x, posi_y, left)] + ray_dists
             right = _norm_angle(ori - part_size * (j+1), math.pi)
